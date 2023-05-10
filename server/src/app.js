@@ -12,8 +12,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const commonRouter = require("@src/routers/common");
+const usersRouter = require("@src/routers/users");
 
 app.use("/", commonRouter);
+app.use("/users", usersRouter);
 
 const PORT = process.env.PORT;
 const env = process.env.NODE_ENV;
