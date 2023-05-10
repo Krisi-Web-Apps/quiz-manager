@@ -1,9 +1,11 @@
+const asyncHandler = require("express-async-handler");
+
 const userValidations = require("@src/validations/users");
 const userServices = require("@src/services/users");
 const { passwordHash } = require("@src/utils");
 
 const post = {
-    async register(req, res) {
+    register: asyncHandler(async (req, res) => {
         const { password, ...others } = req.body;
         
         const validationsResult = userValidations.register(others.username, others.email, password);
@@ -29,7 +31,7 @@ const post = {
         delete fetchedUserResult[0].password;
 
         res.status(201).send(fetchedUserResult[0]);
-    }
+    }),
 }
 
 module.exports = {
