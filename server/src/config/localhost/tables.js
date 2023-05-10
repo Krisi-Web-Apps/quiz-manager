@@ -3,7 +3,7 @@ require('module-alias/register');
 require("colors");
 
 const { executeQuery, readSQLFileAsString } = require("@src/utils");
-const connection = require("@src/config/db");
+const connection = require("@src/config/mysql");
 
 let createdTablesCount = 0;
 
