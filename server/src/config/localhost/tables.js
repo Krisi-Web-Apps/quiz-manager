@@ -1,5 +1,5 @@
 require("dotenv").config();
-require('module-alias/register');
+require("module-alias/register");
 require("colors");
 
 const { executeQuery, readSQLFileAsString } = require("@src/utils");
@@ -10,15 +10,18 @@ let createdTablesCount = 0;
 const SQL_TABLES = [
     {
         name: "users",
-        filePath: "src/sql/users"
+        filePath: "src/sql/users",
     },
 ];
 
 const createTables = () => {
     let promises = [];
 
-    SQL_TABLES.forEach(item => {
-        const promise = createTable(item.name, readSQLFileAsString(item.filePath));
+    SQL_TABLES.forEach((item) => {
+        const promise = createTable(
+            item.name,
+            readSQLFileAsString(item.filePath)
+        );
         promises.push(promise);
     });
 
@@ -26,10 +29,9 @@ const createTables = () => {
         console.log(`Created tables count: ${createdTablesCount}`);
         process.exit(0);
     });
-}
+};
 
 const createTable = async (name, sql) => {
-
     const checkIsTableExists = `SHOW TABLES LIKE "${name}";`;
 
     {
@@ -50,6 +52,6 @@ const createTable = async (name, sql) => {
     }
 
     throw new Error(result);
-}
+};
 
 createTables();

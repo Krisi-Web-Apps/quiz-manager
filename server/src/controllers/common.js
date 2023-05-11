@@ -4,9 +4,9 @@ const get = {
     },
     about(req, res) {
         res.send({ message: "This is web application about quiz management." });
-    }
-}
+    },
+};
 
 module.exports = {
     get,
-}
+};

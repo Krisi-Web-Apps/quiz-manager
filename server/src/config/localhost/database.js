@@ -4,7 +4,7 @@ const mysql = require("mysql");
 connection = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD
+    password: process.env.DB_PASSWORD,
 });
 
 connection.connect(function (err) {
@@ -22,4 +22,4 @@ const createDatabase = () => {
             process.exit(0);
         }
     });
-}
+};

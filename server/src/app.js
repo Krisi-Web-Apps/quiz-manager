@@ -1,5 +1,5 @@
 require("dotenv").config();
-require('module-alias/register');
+require("module-alias/register");
 
 const colors = require("colors");
 const cors = require("cors");
@@ -29,5 +29,9 @@ const PORT = process.env.PORT;
 const env = process.env.NODE_ENV;
 
 app.listen(PORT, () => {
-    console.log(`Server started on port: ${colors.green(PORT)} in ${colors.green(env)}`);
+  console.log(
+    `Server started on port: ${colors.green(PORT)} in ${colors.green(env)}`
+  );
 });
+
+module.exports = app;

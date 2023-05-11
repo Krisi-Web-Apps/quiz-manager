@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "nodemon src/app.js",
     "start": "node src/app.js",
+    "prettier": "npx prettier --write .",
+    "test": "jest",
+    "test-c": "jest --coverage",
     "db": "node src/config/localhost/database.js",
     "tables": "node src/config/localhost/tables.js"
   },
@@ -23,10 +26,13 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
+    "babel-plugin-module-resolver": "^5.0.0",
     "colors": "^1.4.0",
+    "jest": "^29.5.0",
     "nodemon": "^2.0.22"
   },
   "_moduleAliases": {
-    "@src": "./src"
+    "@src": "src",
+    "@test": "src/test"
   }
 }
